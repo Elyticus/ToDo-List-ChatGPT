@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const todoList = document.getElementById("todo-list");
   const addTodoButton = document.getElementById("add-todo");
   const newTodoInput = document.getElementById("new-todo");
+  const modeToggleButton = document.getElementById("mode-toggle");
 
   // Load to-do items from Local Storage
   const loadTodos = () => {
@@ -77,4 +78,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load existing to-do items from Local Storage when the page loads
   loadTodos();
+
+  // Load mode from Local Storage and apply it
+  const loadMode = () => {
+    const mode = localStorage.getItem("mode");
+    if (mode === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+  };
+
+  // Save mode to Local Storage
+  const saveMode = (mode) => {
+    localStorage.setItem("mode", mode);
+  };
+
+  // Toggle Dark/Light mode
+  modeToggleButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const mode = document.body.classList.contains("dark-mode")
+      ? "dark"
+      : "light";
+    saveMode(mode);
+  });
+
+  // Load mode on initial load
+  loadMode();
 });

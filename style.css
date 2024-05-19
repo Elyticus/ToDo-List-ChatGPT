@@ -7,6 +7,12 @@ body {
   background: #f0f0f0;
   font-family: Arial, sans-serif;
   margin: 0;
+  transition: background 0.3s ease;
+}
+
+body.dark-mode {
+  background: #2e2e2e;
+  color: #f0f0f0;
 }
 
 .todo-container {
@@ -15,6 +21,11 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 300px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .todo-container {
+  background: #444;
 }
 
 .todo-container h1 {
@@ -31,6 +42,13 @@ body {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .input-container input {
+  background: #666;
+  color: #fff;
+  border: 1px solid #555;
 }
 
 .input-container button {
@@ -58,6 +76,11 @@ li {
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+body.dark-mode li {
+  border-bottom: 1px solid #555;
 }
 
 li:last-child {
@@ -73,14 +96,38 @@ li.completed span {
   color: #888;
 }
 
+body.dark-mode li.completed span {
+  color: #bbb;
+}
+
 li button {
   margin-left: auto;
   background: none;
   border: none;
   color: #888;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 li button:hover {
   color: #000;
+}
+
+body.dark-mode li button {
+  color: #bbb;
+}
+
+#mode-toggle {
+  margin-top: 10px;
+  padding: 8px;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#mode-toggle:hover {
+  background: #555;
 }
